@@ -1,0 +1,68 @@
+
+
+
+
+
+create database matata DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+use matata;
+create table customer(
+    customerId int auto_increment primary key,
+    customerName varchar(20),
+    phone varchar(20),
+    address varchar(40),
+    contactPerson varchar(20),
+    extension  int,
+    sales varchar(20),
+    uniformNumber int,
+    headline varchar(20));
+
+create table product (
+   productId int auto_increment primary key,
+   productName varchar(20),
+   price int,
+   unit varchar(20));
+
+
+						
+create table orders (
+   orderId int auto_increment primary key,
+   orderDate datetime,
+   customerId int,
+   customerName varchar(20),
+   productName varchar(20),
+   quantitys int,
+   orderStock int,
+   unit varchar(20),
+   price int,
+   total int);
+
+   
+insert into orders
+(orderDate,customerId,customerName,productName,quantitys, unit, price,total,orderStock )
+values
+('2020-08-25',1,'濁久商行','紅豆',500,'台斤',50,25000,25000),
+('2020-10-05',5,'尼尼行','燕麥粒',500,'台斤',40,20000,20000),
+('2020-10-06',3,'哈瑪食品','蕎麥',600,'台斤',50,30000,30000);
+
+
+					
+			
+insert into customer 
+  (customerName, phone, address, contactPerson, extension, sales, uniformNumber, headline) 
+  values 
+  ('濁久商行', '04-23347187', '果菜市場33號', '阿笑', 103, 'Suki', 26749875, '濁久商行'),
+  ('豆豆商行', '04-2904-7188', '建國市場    ', '朵拉', 455, 'Alumi', 27466543, '豆豆有限公司'),
+  ('哈瑪食品', '04-2204-1109', '東勢市場    ', '瑪姐', 876, 'Suki', 23466211, '哈瑪商行'),
+  ('法喬食品材料行', '04-2214-0190', '果菜市場56號', '林喬', 12, 'Alumi', 23401215, '法喬有限公司'),
+  ('尼尼行', '04-2304-1131', '果菜市場10號', '古哥', 288, 'Alumi', 23466211, '祥天股份有限公司');
+
+
+
+insert into product 
+  (productName, price, unit) 
+  values 
+  ('紅豆', 50, '台斤'),
+  ('綠豆', 34, '台斤'),
+  ('燕麥粒', 40, '包'),
+  ('蕎麥', 58, '台斤');
+  
